@@ -20,11 +20,13 @@ public:
 	}
 
 	void TextRectangle::set_width(int w) {
-		width = w;
+		if(w>0 && w<10)
+			width = w;
 	}
 
 	void TextRectangle::set_height(int h) {
-		height = h;
+		if (h > 0 && h < 10)
+			height = h;
 	}
 
 	int TextRectangle::getArea() {
@@ -50,9 +52,11 @@ public:
 		int h = get_height();
 		int w = get_width();
 		cout << string(w, pattern) << endl;
-		for (int i = 1; i < h-1; i++)
-			cout << pattern << setw(w-1) << pattern << endl;
-		cout << string(w, pattern) << endl;
+		if (h > 1) {
+			for (int i = 1; i < h - 1; i++)
+				cout << pattern << setw(w - 1) << pattern << endl;
+			cout << string(w, pattern) << endl;
+		}
 	}
 
 private:
@@ -68,7 +72,7 @@ TextRectangle create_rectangle(int width, int height) {
 }
 
 int main() {
-	/*int a;
+	int a;
 	int b;
 
 	cout << "Entrez une valeur :" << endl;
@@ -146,7 +150,7 @@ int main() {
 		for (int i = 0; i < 26; i++) {
 			cout << "Nombre de '" << (char)(i + 'a') << "' : " << letter_nb[i] << endl;
 		}
-	}*/
+	}
 
 	//Ex4
 
